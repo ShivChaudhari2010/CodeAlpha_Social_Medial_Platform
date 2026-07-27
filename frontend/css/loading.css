@@ -1,0 +1,42 @@
+/* Overlay Loader */
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, .65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  visibility: hidden;
+  opacity: 0;
+  transition: .25s;
+}
+
+.loading-overlay.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #e5e7eb;
+  border-top: 6px solid #2563eb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button Loading */
+
+.btn-loading {
+  opacity: .7;
+  cursor: not-allowed;
+}

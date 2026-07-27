@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My Profile</title>
+
+    <link rel="stylesheet" href="./css/profile.css" />
+    <link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="./css/responsive.css">
+    <link rel="stylesheet" href="./css/toast.css">
+    <link rel="stylesheet" href="./css/loading.css">
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="nav-left">
+        <a href="feed.html" class="logo"> Mini Social Media </a>
+      </div>
+
+      <button id="menuToggle" class="menu-toggle">☰</button>
+
+      <nav id="navMenu" class="nav-menu">
+        <a href="feed.html"> Feed </a>
+
+        <a href="profile.html"> Profile </a>
+
+        <span id="username"> Guest </span>
+
+        <button id="logoutBtn">Logout</button>
+      </nav>
+    </header>
+
+    <main class="profile-container">
+      <section class="profile-card">
+        <div class="avatar">👤</div>
+
+        <h2 id="profileUsername">Username</h2>
+
+        <p id="email">email@example.com</p>
+
+        <p id="bio">Your bio...</p>
+
+        <div class="stats">
+          <div>
+            <h3 id="postsCount">0</h3>
+
+            <span>Posts</span>
+          </div>
+
+          <div>
+            <h3 id="followersCount">0</h3>
+
+            <span>Followers</span>
+          </div>
+
+          <div>
+            <h3 id="followingCount">0</h3>
+
+            <span>Following</span>
+          </div>
+        </div>
+
+        <button id="editProfileBtn">Edit Profile</button>
+      </section>
+
+      <!-- Edit Profile Modal -->
+
+      <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+          <h2>Edit Profile</h2>
+
+          <input type="text" id="editUsername" placeholder="Username" />
+
+          <textarea id="editBio" placeholder="Bio"></textarea>
+
+          <div class="modal-buttons">
+            <button id="saveProfileBtn">Save</button>
+
+            <button id="cancelBtn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="my-posts">
+        <h2>My Posts</h2>
+
+        <div id="myPostsContainer"></div>
+      </section>
+    </main>
+
+    <script src="./js/config.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/guard.js"></script>
+
+    <script src="./js/profileService.js"></script>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/toast.js"></script>
+    <script src="./js/profile.js"></script>
+    <script src="./js/loading.js"></script>
+
+    <script>
+      RouteGuard.requireAuth();
+    </script>
+  </body>
+</html>
