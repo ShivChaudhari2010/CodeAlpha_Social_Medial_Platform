@@ -5,8 +5,8 @@ const host = window.location.hostname;
 
 // const API_BASE_URL = "http://localhost:5000/api/v1";
 
-const API_BASE_URL =
-  host === "localhost" || host === "127.0.0.1"
+const API_BASE_URL = 
+  host === "localhost"
     ? "http://localhost:5000/api/v1"
     : "https://codealpha-social-medial-platform.onrender.com";
 
