@@ -6,11 +6,12 @@
     <title>Mini Social Media</title>
 
     <link rel="stylesheet" href="./css/home.css" />
-    <link rel="stylesheet" href="./css/home.css">
-<link rel="stylesheet" href="./css/responsive.css">
-    <link rel="stylesheet" href="./css/loading.css">
-    <link rel="stylesheet" href="./css/feed.css">
-    <link rel="stylesheet" href="./css/toast.css">
+    <link rel="stylesheet" href="./css/home.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
+    <link rel="stylesheet" href="./css/feed.css" />
+    <link rel="stylesheet" href="./css/toast.css" />
+    <link rel="stylesheet" href="./css/theme.css" />
   </head>
 
   <body>
@@ -23,6 +24,16 @@
         <a href="login.html">Login</a>
 
         <a href="register.html" class="register-btn"> Register </a>
+
+        <!-- Theme Button -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+        >
+          🌙
+        </button>
       </div>
     </nav>
 
@@ -48,7 +59,7 @@
     <!-- Community Feed -->
 
     <section class="container" id="feedSection">
-      <h2 style="text-align:center; margin: 24px 0;">Community Feed</h2>
+      <h2 style="text-align: center; margin: 24px 0">Community Feed</h2>
 
       <!-- Create Post: only shown to logged-in users -->
       <section class="create-post hidden" id="createPostBox">
@@ -124,6 +135,7 @@
     <script src="./js/auth.js"></script>
     <script src="./js/toast.js"></script>
     <script src="./js/postService.js"></script>
+    <script src="./js/theme.js"></script>
 
     <script>
       // Show Feed/Logout instead of Login/Register when a valid session exists
@@ -135,12 +147,14 @@
           await Auth.fetchCurrentUser(); // confirm token is still valid
           navLinks.innerHTML = `
             <a href="feed.html">Feed</a>
-            <a href="#" id="logoutBtn" class="register-btn">Logout</a>
+            <!--<a href="#" id="logoutBtn" class="register-btn">Logout</a>-->
           `;
-          document.getElementById("logoutBtn").addEventListener("click", (e) => {
-            e.preventDefault();
-            Auth.logout();
-          });
+          document
+            .getElementById("logoutBtn")
+            .addEventListener("click", (e) => {
+              e.preventDefault();
+              Auth.logout();
+            });
           createPostBox.classList.remove("hidden"); // members can post from the landing page too
         } catch (error) {
           // Invalid/expired token sitting in localStorage — clear it
@@ -150,7 +164,13 @@
       })();
     </script>
 
-    <script src="./js/home.js"></script>
+    <script id="theme-preload">
+      try {
+        const t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
 
+    <script src="./js/home.js"></script>
   </body>
 </html>

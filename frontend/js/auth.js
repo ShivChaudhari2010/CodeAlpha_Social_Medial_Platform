@@ -84,11 +84,12 @@ const Auth = {
     if (!form) return;
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+
       const username = document.getElementById("username").value.trim();
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value;
-      const confirmPassword =
-        document.getElementById("confirmPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
       if (password !== confirmPassword) {
         alert("Passwords do not match.");
         return;
@@ -146,7 +147,27 @@ const Auth = {
   },
 };
 
+
 document.addEventListener("DOMContentLoaded", () => {
   Auth.initLoginForm();
   Auth.initRegisterForm();
 });
+
+// login password show not show
+
+const passwordInput = document.getElementById("password");
+const togglePassword = document.querySelector(".toggle-password");
+
+if (passwordInput && togglePassword) {
+  togglePassword.addEventListener("click", () => {
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      togglePassword.textContent = "🙈";
+      togglePassword.setAttribute("aria-label", "Hide password");
+    } else {
+      passwordInput.type = "password";
+      togglePassword.textContent = "👁";
+      togglePassword.setAttribute("aria-label", "Show password");
+    }
+  });
+}

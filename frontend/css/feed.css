@@ -1,406 +1,412 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color)
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+  padding: 14px 5%;
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1000
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2563eb;
-  text-decoration: none;
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--primary-color);
+  text-decoration: none
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px
 }
 
 .nav-menu a {
   text-decoration: none;
-  color: #333;
-  font-weight: 600;
+  color: var(--text-color);
+  font-weight: 650;
+  padding: 8px 10px;
+  border-radius: 8px
 }
 
 .nav-menu a:hover {
-  color: #2563eb;
+  background: var(--surface-muted);
+  color: var(--primary-color)
 }
 
 #username {
-  font-weight: 600;
-  color: #555;
+  font-weight: 700;
+  color: var(--secondary-text)
 }
 
 #logoutBtn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background: #2563eb;
-  color: white;
+  padding: 9px 15px;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: #fff;
   cursor: pointer;
+  font-weight: 700
 }
 
 #logoutBtn:hover {
-  background: #2563eb;
-  color: #555;
+  background: var(--primary-hover)
 }
 
 .menu-toggle {
   display: none;
-  border: none;
-  background: none;
+  border: 0;
+  background: transparent;
+  color: var(--text-color);
   font-size: 26px;
-  cursor: pointer;
-}
-
-
-.nav-right {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
-
-#logoutBtn {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: white;
-  color: #2563eb;
-  font-weight: bold;
+  cursor: pointer
 }
 
 .container {
-  width: 90%;
-  max-width: 700px;
-  margin: 30px auto;
+  width: min(760px, 92%);
+  margin: 32px auto 50px
+}
+
+.create-post,
+.post-card {
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow)
 }
 
 .create-post {
-  background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
-  margin-bottom: 25px;
+  margin-bottom: 22px
 }
 
-textarea {
+.create-post textarea {
   width: 100%;
-  min-height: 120px;
-  resize: none;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 15px;
+  min-height: 115px;
+  resize: vertical;
+  padding: 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  outline: none;
+  font: inherit
+}
+
+.create-post textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--focus-ring)
 }
 
 #createPostBtn {
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 8px;
+  margin-top: 12px;
+  padding: 11px 18px;
+  background: var(--primary-color);
+  color: #fff;
+  border: 0;
+  border-radius: 9px;
   cursor: pointer;
+  font-weight: 700
 }
 
-.post {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
-}
-
-.post-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-}
-
-.post-user {
-  font-weight: bold;
-}
-
-.post-time {
-  color: gray;
-  font-size: 13px;
-}
-
-.post-content {
-  margin-bottom: 15px;
-  line-height: 1.5;
-}
-
-.delete-btn {
-  border: none;
-  background: #ef4444;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  background: #dc2626;
-}
-
-@media(max-width:768px) {
-
-  .navbar {
-    padding: 15px 20px;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .container {
-    width: 95%;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    right: 0;
-    background: white;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
-  }
-
-  .nav-menu.show {
-    display: flex;
-  }
+#createPostBtn:hover {
+  background: var(--primary-hover)
 }
 
 .post-card {
-  background: #fff;
-  border-radius: 12px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .08);
+  margin-bottom: 20px
 }
 
 .post-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  align-items: center;
+  margin-bottom: 13px
 }
 
 .post-header h3 {
-  margin-bottom: 5px;
+  font-size: 17px
+}
+
+.post-header small {
+  color: var(--secondary-text);
+  font-size: 12px
 }
 
 .post-content {
-  margin: 20px 0;
-  line-height: 1.6;
+  margin: 16px 0;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word
 }
 
 .post-footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color)
+}
+
+.likes-count,
+.comments-count {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--secondary-text)
 }
 
 .likes-count {
-  font-weight: bold;
-  color: #e11d48;
+  color: #e11d48
 }
 
 .post-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-left: auto;
+  flex-wrap: wrap
+}
+
+.like-btn,
+.toggle-comments-btn,
+.delete-btn,
+.comment-btn {
+  border: 0;
+  padding: 9px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700
 }
 
 .like-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
 }
 
 .like-btn:hover {
-  background: #1d4ed8;
+  background: var(--primary-hover)
+}
+
+.toggle-comments-btn {
+  background: var(--comment-btn-bg);
+  color: var(--comment-btn-text);
+  border: 1px solid var(--border-color)
+}
+
+.toggle-comments-btn:hover {
+  background: var(--comment-btn-hover)
 }
 
 .delete-btn {
-  background: #dc2626;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
+  background: #ef4444;
+  color: #fff
 }
 
 .delete-btn:hover {
-  background: #b91c1c;
+  background: #dc2626
 }
 
 .like-btn:disabled {
   opacity: .6;
-  cursor: not-allowed;
+  cursor: not-allowed
 }
 
 .comment-section {
-  margin-top: 20px;
-  border-top: 1px solid #eee;
-  padding-top: 15px;
+  margin-top: 17px;
+  padding: 16px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border-color);
+  border-radius: 13px
 }
 
 .comment-input {
   display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 9px;
+  margin-bottom: 14px
 }
 
 .comment-input input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  background: var(--input-bg);
+  color: var(--text-color);
+  outline: none
+}
+
+.comment-input input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--focus-ring)
 }
 
 .comment-btn {
-  background: #2563eb;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
+  background: var(--primary-color);
+  color: #fff;
+  min-width: 70px
 }
 
 .comment-btn:hover {
-  background: #1d4ed8;
+  background: var(--primary-hover)
 }
 
 .comments-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px
 }
 
 .comment-card {
-  background: #f9fafb;
-  padding: 12px;
-  border-radius: 8px;
+  position: relative;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  padding: 13px 14px;
+  border-radius: 11px
 }
 
 .comment-card h4 {
-  margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: var(--text-color)
 }
 
 .comment-card p {
-  margin-bottom: 8px;
+  margin: 0 0 7px;
+  line-height: 1.45;
+  color: var(--text-color);
+  word-break: break-word
 }
 
 .comment-card small {
-  color: #6b7280;
+  color: var(--secondary-text);
+  font-size: 11px
 }
 
-.toggle-comments-btn {
-  background: #10b981;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
+.delete-comment-btn {
+  margin-top: 9px;
+  background: transparent;
+  color: #ef4444;
+  border: 0;
   cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 0
 }
 
-.toggle-comments-btn:hover {
-  background: #059669;
+.delete-comment-btn:hover {
+  text-decoration: underline
+}
+
+.comments-empty {
+  padding: 18px;
+  text-align: center;
+  border: 1px dashed var(--border-color);
+  border-radius: 10px;
+  color: var(--secondary-text);
+  font-size: 14px
 }
 
 .hidden {
-  display: none;
-}
-
-/* 
-body {
-
-  margin: 0;
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  height: 100vh;
-
-  background: #f4f6f8;
-
-  font-family: Arial, sans-serif;
-
-} */
-
-.hero {
-  text-align: center;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 24px;
-  margin: 10px;
-  text-decoration: none;
-  color: white;
-  background: #2563eb;
-  border-radius: 8px;
-}
-
-.secondary {
-  background: #10b981;
+  display: none
 }
 
 .empty-state {
   text-align: center;
-  padding: 60px 20px;
-  color: #6b7280;
+  padding: 55px 20px;
+  background: var(--card-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  color: var(--secondary-text)
 }
 
 .empty-icon {
-  font-size: 60px;
-  margin-bottom: 15px;
+  font-size: 52px;
+  margin-bottom: 12px
 }
 
 .empty-state h2 {
-  color: #1f2937;
-  margin-bottom: 10px;
+  color: var(--text-color);
+  margin-bottom: 7px
 }
 
 .empty-state p {
-  font-size: 16px;
+  font-size: 15px
 }
 
 .empty-state.small {
-  padding: 20px;
+  padding: 18px;
+  background: transparent;
+  border: 0
 }
 
-.empty-state.small p {
-  font-size: 14px;
+@media(max-width:768px) {
+  .navbar {
+    padding: 13px 18px
+  }
+
+  .menu-toggle {
+    display: block
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    background: var(--navbar-bg);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 18px;
+    box-shadow: var(--shadow)
+  }
+
+  .nav-menu.show {
+    display: flex
+  }
+
+  .nav-menu a,
+  #username {
+    padding: 10px
+  }
+
+  .post-footer {
+    align-items: flex-start
+  }
+
+  .post-actions {
+    width: 100%;
+    margin-left: 0
+  }
+
+  .post-actions button {
+    flex: 1
+  }
+
+  .comment-input {
+    flex-direction: column
+  }
+
+  .comment-btn {
+    width: 100%
+  }
 }
