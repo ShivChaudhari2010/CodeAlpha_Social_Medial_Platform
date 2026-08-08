@@ -15,5 +15,7 @@ const CONFIG = {
       : "https://mini-social-media-backend-ndjk.onrender.com/api/v1"
 };
 
+const API_BASE_URL = CONFIG.API_BASE_URL;
+
 const TOKEN_KEY = "token";
 const USER_KEY = "user";
