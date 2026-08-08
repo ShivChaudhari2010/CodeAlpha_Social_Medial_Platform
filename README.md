@@ -847,52 +847,6 @@ MongoDB password
 Database credentials
 ```
 
----
-
-# 📸 Screenshots
-
-Add screenshots of your application here after deployment.
-
-Example:
-
-```markdown
-## 📸 Screenshots
-
-### Landing Page
-
-![Landing Page](screenshots/landing.png)
-
-### Login
-
-![Login](screenshots/login.png)
-
-### Feed
-
-![Feed](screenshots/feed.png)
-
-### Profile
-
-![Profile](screenshots/profile.png)
-
-### Dark Mode
-
-![Dark Mode](screenshots/dark-mode.png)
-```
-
-Recommended screenshot folder:
-
-```text
-screenshots/
-├── landing.png
-├── login.png
-├── register.png
-├── feed.png
-├── profile.png
-└── dark-mode.png
-```
-
----
-
 # 🗺️ Development Roadmap
 
 ## Phase 1 — Project Setup
