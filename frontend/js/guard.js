@@ -1,22 +1,3 @@
-// const RouteGuard = {
-
-//   // Protect pages that require login
-//   requireAuth() {
-//     if (!Auth.isLoggedIn()) {
-//       window.location.href = "login.html";
-//     }
-//   },
-
-
-//   // Prevent logged-in users from visiting Login/Register
-//   requireGuest() {
-//     if (Auth.isLoggedIn()) {
-//       window.location.href = "index.html";
-//     }
-//   }
-// };
-
-
 const RouteGuard = {
 
   // Protect pages that require login

@@ -162,11 +162,11 @@ if (passwordInput && togglePassword) {
   togglePassword.addEventListener("click", () => {
     if (passwordInput.type === "password") {
       passwordInput.type = "text";
-      togglePassword.textContent = "🙈";
+      togglePassword.innerHTML = '<i class="bi bi-eye-fill"></i>';
       togglePassword.setAttribute("aria-label", "Hide password");
     } else {
       passwordInput.type = "password";
-      togglePassword.textContent = "👁";
+      togglePassword.innerHTML = '<i class="bi bi-eye-slash-fill"></i>';
       togglePassword.setAttribute("aria-label", "Show password");
     }
   });

@@ -3,9 +3,14 @@
 
   function applyTheme(theme) {
     document.body.classList.toggle("dark-mode", theme === "dark");
+
     const btn = document.getElementById("themeToggle");
+
     if (btn) {
-      btn.textContent = theme === "dark" ? "☀️" : "🌙";
+      btn.innerHTML =
+        theme === "dark"
+          ? '<i class="bi bi-sun-fill"></i>'
+          : '<i class="bi bi-moon-fill"></i>';
     }
   }
 
