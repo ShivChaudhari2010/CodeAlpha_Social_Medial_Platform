@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="./css/responsive.css" />
     <link rel="stylesheet" href="./css/toast.css" />
     <link rel="stylesheet" href="./css/loading.css" />
-    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/theme.css" />
   </head>
 
   <body>
+    <button id="themeToggle" class="theme-toggle" style="position:fixed; top:20px; right:20px;" title="Toggle dark mode">🌙</button>
+
     <div class="auth-container">
       <div class="auth-card">
         <h1>My Social Media</h1>
@@ -28,9 +30,16 @@
 
           <div class="form-group">
             <label>Password</label>
+
             <div class="password-box">
-              <input type="password" id="password" placeholder="Enter password" required/>
-              <button type="button" class="toggle-password" aria-label="Show password">👁</button>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+              />
+
+              <button type="button" class="toggle-password">👁</button>
             </div>
           </div>
 
@@ -39,6 +48,7 @@
 
         <p>
           Don't have an account?
+
           <a href="register.html"> Register </a>
         </p>
       </div>
@@ -48,16 +58,12 @@
     <script src="./js/api.js"></script>
     <script src="./js/toast.js"></script>
     <script src="./js/loading.js"></script>
+    <script src="./js/theme.js"></script>
     <script src="./js/auth.js"></script>
     <script src="./js/guard.js"></script>
-    <script src="./js/theme.js"></script>
 
     <script>
       RouteGuard.requireGuest();
     </script>
-
-    <script id="theme-preload">try{const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-
   </body>
 </html>
-

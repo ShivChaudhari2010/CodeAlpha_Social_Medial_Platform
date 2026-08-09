@@ -1,27 +1,34 @@
-const Theme = {
-  init() {
-    const saved = localStorage.getItem("theme");
-    const theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-    this.updateButton();
-  },
-  toggle() {
-    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    this.updateButton();
-  },
-  updateButton() {
-    const button = document.getElementById("themeToggle");
-    if (!button) return;
-    const dark = document.documentElement.getAttribute("data-theme") === "dark";
-    button.textContent = dark ? "☀️" : "🌙";
-    button.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-    button.title = dark ? "Light mode" : "Dark mode";
+(function () {
+  const THEME_KEY = "theme"; // "dark" | "light"
+
+  function applyTheme(theme) {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+      btn.textContent = theme === "dark" ? "☀️" : "🌙";
+    }
   }
-};
-document.addEventListener("DOMContentLoaded", () => {
-  Theme.init();
-  const button = document.getElementById("themeToggle");
-  if (button) button.addEventListener("click", () => Theme.toggle());
-});
+
+  function getSavedTheme() {
+    const saved = localStorage.getItem(THEME_KEY);
+    if (saved) return saved;
+    // No preference saved yet — fall back to the OS/browser setting
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    applyTheme(getSavedTheme());
+
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark-mode");
+        const next = isDark ? "light" : "dark";
+        localStorage.setItem(THEME_KEY, next);
+        applyTheme(next);
+      });
+    }
+  });
+})();

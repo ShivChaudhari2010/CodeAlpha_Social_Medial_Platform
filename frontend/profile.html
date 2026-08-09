@@ -30,8 +30,7 @@
 
         <span id="username"> Guest </span>
 
-                    <!-- Theme Button -->
-    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
 
         <button id="logoutBtn">Logout</button>
       </nav>
@@ -110,8 +109,5 @@
     <script>
       RouteGuard.requireAuth();
     </script>
-
-    <script id="theme-preload">try{const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-
   </body>
 </html>

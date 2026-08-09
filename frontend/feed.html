@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./css/toast.css">
     <link rel="stylesheet" href="./css/loading.css">
     <link rel="stylesheet" href="./css/theme.css">
-    
   </head>
 
   <body>
@@ -31,8 +30,7 @@
 
         <span id="username"> Guest </span>
 
-            <!-- Theme Button -->
-    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode">🌙</button>
+        <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
 
         <button id="logoutBtn">Logout</button>
       </nav>
@@ -42,10 +40,12 @@
       <!-- Create Post -->
 
       <section class="create-post">
+        <textarea
+          id="postContent"
+          placeholder="What's on your mind?"
+        ></textarea>
 
-        <textarea id="postContent" placeholder="What's on your mind?"></textarea>
         <button id="createPostBtn">Create Post</button>
-
       </section>
 
       <!-- Posts -->
@@ -62,10 +62,8 @@
     <script src="./js/navbar.js"></script>
     <script src="./js/toast.js"></script>
     <script src="./js/loading.js"></script>
-    <script src="./js/feed.js"></script>
     <script src="./js/theme.js"></script>
-
-        <script id="theme-preload">try{const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+    <script src="./js/feed.js"></script>
 
     <script>
       RouteGuard.requireAuth();
