@@ -1,5 +1,5 @@
-console.log("Hostname:", window.location.hostname);
-console.log("Origin:", window.location.origin);
+// console.log("Hostname:", window.location.hostname);
+// console.log("Origin:", window.location.origin);
 
 // const host = window.location.hostname;
 

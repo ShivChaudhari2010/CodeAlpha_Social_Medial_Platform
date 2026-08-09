@@ -114,7 +114,7 @@ const Auth = {
   initLoginForm() {
 
 
-    console.log("Login form initialized");
+    // console.log("Login form initialized");
 
 
     const form = document.getElementById("loginForm");
